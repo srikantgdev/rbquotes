@@ -1,0 +1,20 @@
+<%# app/views/quotes/index.html.erb %>
+<%= turbo_stream_from "quotes" %>
+
+<main class="container">
+  <p style="color: green"><%= notice %></p>
+  <div class="header align-center d-flex mb-3">
+    <div class="d-flex align-middle h3 w-50">Quotes</div>
+    <%= link_to "New quote",
+        new_quote_path, 
+        class: "btn btn-primary",
+        data: { turbo_frame: dom_id(Quote.new) }
+    %>
+  </div>
+
+  <%= turbo_frame_tag Quote.new %>
+
+  <%= turbo_frame_tag do %>
+    <%= render @quotes %>
+  <% end %>
+</main>

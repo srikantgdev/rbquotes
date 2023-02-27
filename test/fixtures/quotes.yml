@@ -1,0 +1,9 @@
+# text/fixtures/quotes.yml
+first:
+  name: First
+
+second:
+  name: Second
+
+third:
+  name: Third
