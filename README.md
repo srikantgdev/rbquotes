@@ -9,3 +9,4 @@
 ```
   rails db:migrate
 ```
+### Rails version: ```v7.0.4.2```
