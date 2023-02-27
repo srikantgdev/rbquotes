@@ -1,12 +1,6 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
 
-  before_action :user_authenticate!
-
-  def user_authenticate!
-    redirect_to {controller :user, action: login}
-  end
-
   # GET /quotes or /quotes.json
   def index
     @quotes = Quote.ordered
