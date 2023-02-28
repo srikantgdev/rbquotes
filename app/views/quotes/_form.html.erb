@@ -6,7 +6,8 @@
       </div>
     <% end %>
     <div class="mt-4">
-      Quote for :: <b><%= login_username %></b>
+      Quote for :: <b><%= login_username %></b> <%= userid %>
+      <%= f.input :user_id, :as => :hidden, :input_html => {:value => userid } %>
       <%= f.input :name, maxlength: 50, class: "form-control", input_html: { autofocus: true } %>
       <div class="mt-2">
         <%= link_to "Cancel", quotes_path, class: "btn btn-outline-secondary" %>

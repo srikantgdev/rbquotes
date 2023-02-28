@@ -22,9 +22,8 @@ class QuotesController < ApplicationController
   # POST /quotes or /quotes.json
   def create
     @quote = Quote.new(quote_params)
-    @quote.user_id = session[:current_user_id]
 
-    puts "** quotes::create :: #{@quote.id} #{@quote.name} #{@quote.user_id}"
+    puts "** quotes::create :: #{@quote.as_json}"
     if @quote.save
       puts "** quotes::SAVE :: #{@quote.id} #{@quote.name} #{@quote.user_id}"
 
