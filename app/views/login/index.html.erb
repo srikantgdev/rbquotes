@@ -1,13 +1,14 @@
 <main class="p-2">
   <div class="card p-2">
     <div class="card-body">
+      flash:: <% render 'shared/flash'%>
       <div class="card-title display-6">Login</div>
       <%= form_with(url: login_create_path, method: 'post') do %>
         <%= label_tag(:username, "User name:") %>
         <%= text_field_tag(:username) %>
         <div class="my-2 row">
           <div class="col col-md"><%= submit_tag("Sign In") %></div>
-          <div class="col col-md"><%= link_to "Sign up", users_path, class: "btn btn-sm btn-primary text-white" %></div>
+          <div class="col col-md"><%= link_to "Create new account", users_path, class: "btn btn-sm btn-primary text-white" %></div>
         </div>
       <% end %>
     </div>

@@ -3,7 +3,7 @@ class QuotesController < ApplicationController
 
   # GET /quotes or /quotes.json
   def index
-    @quotes = Quote.ordered
+    @quotes = User.find(session[:current_user_id]).quotes
   end
 
   # GET /quotes/1 or /quotes/1.json
@@ -22,13 +22,19 @@ class QuotesController < ApplicationController
   # POST /quotes or /quotes.json
   def create
     @quote = Quote.new(quote_params)
+    @quote.user_id = session[:current_user_id]
 
+    puts "** quotes::create :: #{@quote.id} #{@quote.name} #{@quote.user_id}"
     if @quote.save
+      puts "** quotes::SAVE :: #{@quote.id} #{@quote.name} #{@quote.user_id}"
+
       respond_to do |format|
         format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
         format.turbo_stream
       end
     else
+      puts "** quotes :: create__else: could not save #{:unprocessable_entity}"
+      flash.now[:alert] = "could not save"
       render :new, status: :unprocessable_entity
     end
   end
@@ -64,6 +70,6 @@ class QuotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quote_params
-      params.require(:quote).permit(:name)
+      params.require(:quote).permit([:name, :user_id])
     end
 end

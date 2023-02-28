@@ -1,4 +1,4 @@
-<%# app/views/quotes/index.html.erb %>
+  <%# app/views/quotes/index.html.erb %>
 <%= turbo_stream_from "quotes" %>
 
 <main class="container">
@@ -7,6 +7,9 @@
     <div class="row w-75">
       <div class="col col-md-7 h3">Quotes</div>
       <div class="col col-md text-right">Welcome: <b><%= login_username %></b> | <%= link_to "Logout", logout_path %></div>
+    </div>
+    <div>
+      <% render 'shared/flash' %>
     </div>
     <div class="row">
       <div class="col-md-12 text-right">

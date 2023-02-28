@@ -1,13 +1,5 @@
 module ApplicationHelper
-  def current_user=(user)
-    session[:current_user_id] = user
-  end
-
-  def current_user
-    session[:current_user_id] if !!session[:current_user_id]
-  end
-
-  def login_username_id
+  def login_userid
     session[:current_user_id]
   end
 
