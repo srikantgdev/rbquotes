@@ -6,7 +6,7 @@
       </div>
     <% end %>
     <div class="mt-4">
-      Quote for :: <b><%= login_username %></b> <%= userid %>
+      Quote for :: <b><%= login_username %></b>
       <%= f.input :user_id, :as => :hidden, :input_html => {:value => userid } %>
       <%= f.input :name, maxlength: 50, class: "form-control", input_html: { autofocus: true } %>
       <div class="mt-2">

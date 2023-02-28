@@ -3,7 +3,8 @@ class QuotesController < ApplicationController
 
   # GET /quotes or /quotes.json
   def index
-    @quotes = User.find(session[:current_user_id]).quotes
+    # @quotes = User.find(session[:current_user_id]).quotes
+    @quotes = current_user.quotes
   end
 
   # GET /quotes/1 or /quotes/1.json

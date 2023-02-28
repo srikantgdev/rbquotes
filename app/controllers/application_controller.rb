@@ -5,13 +5,12 @@ class ApplicationController < ActionController::Base
   #     if: Proc.new { |c| c.request.format =~ %r{application/json} }
 
   def current_user=(user)
-    puts "*> ApplicationController #{user}"
     session[:current_user]=user
   end
 
   def current_user
     return unless session[:current_user]
-    @current_user = session[:current_user]
+    @current_user = User.find(session[:current_user_id])
   end
 
   # def user_authenticate
