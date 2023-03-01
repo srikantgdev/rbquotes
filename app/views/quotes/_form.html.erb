@@ -6,11 +6,15 @@
       </div>
     <% end %>
     <div class="mt-4">
-      Quote for :: <b><%= current_user.username %></b>
-      <%= f.input :name, maxlength: 50, class: "form-control", input_html: { autofocus: true } %>
-      <div class="mt-2">
-        <%= link_to "Cancel", quotes_path, class: "btn btn-outline-secondary" %>
-        <%= f.submit class: "btn btn-secondary" %>
+      <h5>
+        Quote for :: <b><%= current_user.username %></b>
+      </h5>
+      <div class="jumbotron p-2">        
+        <%= f.input :name, maxlength: 50, class: "form-control", input_html: { autofocus: true } %>
+        <div class="mt-4">
+          <%= link_to "Cancel", quotes_path, class: "btn btn-outline-secondary" %>
+          <%= f.submit class: "btn btn-secondary" %>
+        </div>
       </div>
     </div>
   <% end %>

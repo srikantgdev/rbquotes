@@ -20,11 +20,13 @@
             <div class="modal-footer">
               <%= link_to sanitize("&laquo; Back to quotes"), quotes_path, class: "btn btn-sm btn-secondary" %>
               <%= link_to "Destroy this quote", 
-                quotes_path(@quote), class: "btn btn-warning btn-sm", 
-                data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                }  
+                quotes_path(@quote),
+                class: "btn btn-warning btn-sm", 
+                method: 'delete'
+                # data: {
+                #   turbo_method: :delete,
+                #   turbo_confirm: "Are you sure?"
+                # }  
               %>
             </div>
           </div>

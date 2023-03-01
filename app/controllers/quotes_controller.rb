@@ -41,7 +41,7 @@ class QuotesController < ApplicationController
   def update
     respond_to do |format|
       if @quote.update(quote_params)
-        format.html { redirect_to quote_url(@quote), notice: "Quote was successfully updated." }
+        format.html { redirect_to quotes_path, notice: "Quote was successfully updated." }
         # format.json { render :show, status: :ok, location: @quote }
       else
         format.html { render :edit, status: :unprocessable_entity }
