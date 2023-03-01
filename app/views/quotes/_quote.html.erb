@@ -1,20 +1,20 @@
 <%# app/views/quotes/_quote.html.erb %>
 
 <%= turbo_frame_tag quote do %>
-  <div class="d-flex align-middle py-1">
-    <div class="w-50">
+  <tr>
+    <td width="80%">
       <%= link_to quote.name,
             quote_path(quote),
             data: { turbo_frame: "_top" }
       %>
-    </div>
-    <div class="quote__actions d-flex gap-2">
+    </td>
+    <td widyh="10%">
       <%= link_to "Delete",
           quote_path(quote),
-          class: "btn btn-sm btn-warning" %> 
+          class: "btn btn-sm btn-secondary" %>
       <%= link_to "Edit",
                   edit_quote_path(quote),
                   class: "btn btn-sm btn-info" %>
-    </div>
-  </div>
+    </td>
+  </tr>
 <% end %>

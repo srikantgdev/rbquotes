@@ -1,6 +1,6 @@
 class Quote < ApplicationRecord
   validates :name, presence: true
-  belongs_to :User
+  belongs_to :user
 
   scope :ordered, -> { order(id: :desc) }
   # from turbo

@@ -1,6 +1,7 @@
 <main class="p-2 text-center">
-  <h1>Users</h1>
+  <%= render 'shared/flash' %>
   <div class="card">
+    <h1 class="card-title">Create Account</h1>
     <%= simple_form_for @user do |f| %>
       <% if @user.errors.any? %>
         <div class="error-message>
@@ -10,7 +11,7 @@
       <div>
         <%= f.label 'User name:' %>
         <%= f.text_field :username %>
-        <%= f.submit 'Submit' %>
+        <%= f.submit 'Create' %>
       </div>
       <div class="my-4">
         Have an account? <%= link_to "Sign In", 'login/index', class: "btn btn-sm btn-info" %>

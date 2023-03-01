@@ -8,6 +8,6 @@
   </div>
   
   <%= turbo_frame_tag @quote do %>
-    <%= render "form", quote: @quote, userid: login_userid %>
+    <%= render "form", quote: @quote, userid: current_user.id %>
   <% end %>
 </main>

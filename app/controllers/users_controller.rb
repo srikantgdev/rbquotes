@@ -5,8 +5,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to login_index_path
+    if @user.save
+      flash[:success] = "Account created successfully"
+      self.current_user = @user
+      redirect_to quotes_path, status: :see_other
+    else
+      flash.now[:alert] = "Errors found: #{@user.errors.full_messages}"
+      render :index, status: :unprocessable_entity
+    end
   end
 
   def new

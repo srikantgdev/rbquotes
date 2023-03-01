@@ -23,18 +23,16 @@ class QuotesController < ApplicationController
   # POST /quotes or /quotes.json
   def create
     @quote = Quote.new(quote_params)
+    @quote.user_id = current_user.id
 
-    puts "** quotes::create :: #{@quote.as_json}"
+    puts "** quotes::create :: #{@quote.inspect}"
     if @quote.save
-      puts "** quotes::SAVE :: #{@quote.id} #{@quote.name} #{@quote.user_id}"
-
       respond_to do |format|
         format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
         format.turbo_stream
       end
     else
-      puts "** quotes :: create__else: could not save #{:unprocessable_entity}"
-      flash.now[:alert] = "could not save"
+      flash.now[:alert] = "Errors found: #{@quote.errors.full_messages}"
       render :new, status: :unprocessable_entity
     end
   end
@@ -70,6 +68,6 @@ class QuotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quote_params
-      params.require(:quote).permit([:name, :user_id])
+      params.require(:quote).permit(:name, :user_id)
     end
 end

@@ -1,0 +1,8 @@
+<span>Welcome: </span>
+<% if current_user.nil? %>
+  Guest
+<% else %>
+  <b><%= current_user.username.capitalize %></b>
+  <span>|</span>
+  <%= link_to "Logout", logout_path, class: "nav-link" %>
+<% end %>

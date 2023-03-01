@@ -5,9 +5,8 @@ class LoginController < ApplicationController
   def create
     username = params[:username]
     user = User.where(["username = ?", username]).first
-    if user.nil?
-      @message = "not found"
-      flash.now[:alert] = "User #{username} not found."
+    if user.blank?
+      flash[:alert] = "User #{username} not found."
       redirect_to login_index_path
     else
       current_user = user

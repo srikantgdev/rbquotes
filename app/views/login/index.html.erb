@@ -1,8 +1,8 @@
-<main class="p-2">
+ <main class="container w-50 mt-5">
   <div class="card p-2">
     <div class="card-body">
-      flash:: <% render 'shared/flash'%>
-      <div class="card-title display-6">Login</div>
+      <%= render 'shared/flash' %>
+      <div class="card-title h4 shadow-lg">Login</div>
       <%= form_with(url: login_create_path, method: 'post') do %>
         <%= label_tag(:username, "User name:") %>
         <%= text_field_tag(:username) %>
