@@ -20,8 +20,6 @@
   <%= turbo_frame_tag Quote.new %>
 
   <%= turbo_frame_tag do %>
-    <table class="table table-striped table-hover">
-      <%= render @quotes %>
-    </table>
+    <%= render @quotes %>
   <% end %>
 </main>

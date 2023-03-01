@@ -1,20 +1,11 @@
 <%# app/views/quotes/_quote.html.erb %>
 
 <%= turbo_frame_tag quote do %>
-  <tr>
-    <td width="80%">
-      <%= link_to quote.name,
-            quote_path(quote),
-            data: { turbo_frame: "_top" }
-      %>
-    </td>
-    <td widyh="10%">
-      <%= link_to "Delete",
-          quote_path(quote),
-          class: "btn btn-sm btn-secondary" %>
-      <%= link_to "Edit",
-                  edit_quote_path(quote),
-                  class: "btn btn-sm btn-info" %>
-    </td>
-  </tr>
+  <div class="mb-2">
+    <div><%= quote.name %></div>
+    <div>
+      <%= link_to "Delete", quote_path(quote), class: "btn btn-sm btn-warning" %>
+      <%= link_to "Edit", edit_quote_path(quote), class: "btn btn-sm btn-info" %>
+    </div>
+  </div>
 <% end %>
